@@ -1,3 +1,4 @@
+# Hugo configuration file
 baseURL = 'https://personal.ajlabarca.com/'
 languageCode = 'en-us'
 title = 'AJ La Barca — Photos & Hobbies'
