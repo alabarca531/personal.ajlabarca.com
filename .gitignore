@@ -1,0 +1,5 @@
+# Gitignore for ajlabarca.com Website
+
+# HUGO files
+public/
+.hugo_build.lock
