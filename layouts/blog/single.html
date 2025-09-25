@@ -1,0 +1,7 @@
+{{ define "main" }}
+<main class="container mx-auto px-6 py-10 prose prose-invert">
+  <h1>{{ .Title }}</h1>
+  <p class="opacity-70 text-sm">{{ .Date.Format "Jan 2, 2006" }}</p>
+  {{ .Content }}
+</main>
+{{ end }}

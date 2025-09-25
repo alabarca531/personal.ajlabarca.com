@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main class="container mx-auto px-6 py-10 prose prose-invert">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}{{ . }}{{ end }}
+  <ul>
+    {{ range .Pages.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="opacity-70 text-sm">— {{ .Date.Format "Jan 2, 2006" }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}

@@ -1,3 +1,32 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://personal.ajlabarca.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'AJ La Barca — Photos & Hobbies'
+
+[params]
+  defaultTheme = "dark"
+
+[menu]
+  [[menu.main]]
+    name = "Photos"
+    url  = "/"
+    weight = 10
+  [[menu.main]]
+    name = "Blog"
+    url  = "/blog/"
+    weight = 20
+  [[menu.main]]
+    name = "About"
+    url  = "/about/"
+    weight = 30
+  [[menu.main]]
+    name = "Work →"
+    url  = "https://ajlabarca.com"
+    weight = 40
+
+[module]
+  [[module.imports]]
+    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
