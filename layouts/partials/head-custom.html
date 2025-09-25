@@ -1,0 +1,8 @@
+<!-- Search functionality -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+<script src="/js/search.js" defer></script>
+
+<!-- Additional meta tags for search -->
+{{ if .IsHome }}
+  <link rel="alternate" type="application/json" title="Site Index" href="/index.json" />
+{{ end }}

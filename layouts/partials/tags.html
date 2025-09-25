@@ -1,0 +1,65 @@
+{{ with .Params.tags }}
+<div class="tags-container">
+  <h4>Tags:</h4>
+  <div class="tags">
+    {{ range . }}
+      <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">#{{ . }}</a>
+    {{ end }}
+  </div>
+</div>
+
+<style>
+.tags-container {
+  margin: 1.5rem 0;
+}
+
+.tags-container h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--tag-bg, #f1f3f4);
+  color: var(--tag-color, #5f6368);
+  text-decoration: none;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.tag:hover {
+  background: var(--tag-hover-bg, #e8eaed);
+  color: var(--tag-hover-color, #202124);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .tags-container h4 {
+    --text-light: #a0aec0;
+  }
+  
+  .tag {
+    --tag-bg: #4a5568;
+    --tag-color: #e2e8f0;
+    --tag-hover-bg: #718096;
+    --tag-hover-color: #f7fafc;
+  }
+}
+</style>
+{{ end }}

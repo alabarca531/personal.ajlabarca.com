@@ -1,20 +1,30 @@
-# Hugo configuration file -- continued silly change
 baseURL = 'https://personal.ajlabarca.com/'
 languageCode = 'en-us'
 title = 'AJ La Barca — Photos & Hobbies'
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy"]
+enableRobotsTXT = true
+timeout = "120s"
 
 [params]
   defaultTheme = "dark"
+  description = "Personal photography site"
+  title = "AJ's Photo Gallery"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[imaging]
+  quality = 75
+  resampleFilter = "CatmullRom"
+
+[module]
+  [[module.imports]]
+    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
 
 [menu]
-  [[menu.main]]
-    name = "Photos"
-    url  = "/"
-    weight = 10
-  [[menu.main]]
-    name = "Blog"
-    url  = "/blog/"
-    weight = 20
   [[menu.main]]
     name = "About"
     url  = "/about/"
@@ -23,11 +33,3 @@ title = 'AJ La Barca — Photos & Hobbies'
     name = "Work →"
     url  = "https://ajlabarca.com"
     weight = 40
-
-[module]
-  [[module.imports]]
-    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
-
-[caches]
-  [caches.images]
-    dir = ':cacheDir/images'
