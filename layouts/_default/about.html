@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ partial "title.html" . }}
+  <section class="prose about-body">
+    {{ partial "photo.html" (dict "name" "camera" "alt" "AJ La Barca holding a camera" "class" "photo-side" "sizes" "(max-width: 768px) 100vw, 20rem") }}
+    {{ .Content }}
+  </section>
+{{ end }}

@@ -1,0 +1,22 @@
+# Everything on /music comes from this file. Empty sections are hidden automatically.
+
+# Full channel URL, e.g. https://www.youtube.com/@yourhandle
+channel: "https://www.youtube.com/@ajlabarca1584"
+
+instruments: [Cello, Piano, Saxophone, Organ, Guitar]
+
+# Videos to feature. `id` is the part after "watch?v=" in the YouTube URL.
+#   - id: dQw4w9WgXcQ
+#     title: "Elgar Cello Concerto, mvt. I"
+#     when: "2019"
+#     note: "Spring recital"
+videos: []
+
+# Accolades, newest first. `group` is optional and used for headings (e.g. "High School", "College").
+#   - what: "NYSSMA All-State Symphony Orchestra, Principal Cello"
+#     when: "2018"
+#     group: "High School"
+accolades:
+  - what: "Winner, University of Rochester Symphony Orchestra Concerto Competition"
+    when: "2021–22"
+    group: "College"

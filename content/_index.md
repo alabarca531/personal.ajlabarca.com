@@ -1,7 +1,4 @@
 ---
-title: "AJ’s Photo Albums"
-# No need for special params here; featured albums are picked from album pages.
+title: "AJ La Barca"
+description: "Photography, music, and hobbies of AJ La Barca, an aerospace PhD student in Boulder, Colorado."
 ---
-
-Welcome! This site is a visual companion to my professional page.
-You’ll find Colorado landscapes, climbing and ski days, and assorted nerdy experiments.

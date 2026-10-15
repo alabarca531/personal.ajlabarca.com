@@ -1,0 +1,35 @@
+/* Site-specific additions on top of hugo-theme-gallery. */
+
+.music-intro .instruments { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 1.5rem 0; }
+.music-intro .instruments li { margin: 0; padding: .3rem .8rem; border: 1px solid var(--border); border-radius: 999px; font-size: .875rem; }
+.music-intro .instruments li::before { display: none; }
+.yt-channel { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1rem; border-radius: 999px; background: #ff0033; color: #fff !important; text-decoration: none !important; }
+.yt-channel:hover { filter: brightness(1.1); }
+
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 2rem auto; }
+.video { margin: 0; }
+.video iframe, .yt-lite { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: .75rem; }
+.yt-lite { position: relative; cursor: pointer; background: #000 center / cover no-repeat; }
+.yt-play { position: absolute; inset: 0; margin: auto; width: 68px; height: 48px; border-radius: 12px; background: rgba(0, 0, 0, .7); transition: background .2s; }
+.yt-play::after { content: ""; position: absolute; inset: 0; margin: auto; width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent #fff; transform: translateX(2px); }
+.yt-lite:hover .yt-play, .yt-lite:focus-visible .yt-play { background: #ff0033; }
+.video figcaption { display: flex; flex-wrap: wrap; gap: .25rem .75rem; margin-top: .75rem; font-size: .9rem; }
+.video figcaption span { opacity: .7; }
+
+.accolade-list { list-style: none; padding: 0; }
+.accolade-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--border); margin: 0; }
+.accolade-list li::before { display: none; }
+.accolade-list time { white-space: nowrap; opacity: .65; font-variant-numeric: tabular-nums; }
+.prose ul.accolade-list { padding-left: 0; margin-left: 0; }
+.accolades h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: .5rem; }
+.accolades h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; opacity: .7; margin-top: 1.5rem; }
+
+/* Optional photos (layouts/partials/photo.html) */
+.photo { margin: 0; }
+.photo img { display: block; width: 100%; height: auto; border-radius: .75rem; }
+.photo-hero { max-width: 1200px; margin: 0 auto 2rem; }
+.photo-side { margin-bottom: 1.5rem; }
+@media (min-width: 768px) {
+  .photo-side { float: right; width: 18rem; margin: .25rem 0 1rem 2rem; }
+  .about-body::after, .accolades::after { content: ""; display: table; clear: both; }
+}

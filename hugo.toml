@@ -1,35 +1,48 @@
 baseURL = 'https://personal.ajlabarca.com/'
-languageCode = 'en-us'
-title = 'AJ La Barca — Photos & Hobbies'
-defaultContentLanguage = "en"
-disableKinds = ["taxonomy"]
+locale = 'en-US'
+title = 'AJ La Barca · Photos & Music'
+copyright = '© AJ La Barca. All photos are my own.'
+disableKinds = ['taxonomy', 'term']
 enableRobotsTXT = true
-timeout = "120s"
+timeout = '120s'
 
 [params]
-  defaultTheme = "dark"
-  description = "Personal photography site"
-  title = "AJ's Photo Gallery"
+  defaultTheme = 'dark'
+  description = 'Photography and music by AJ La Barca, an aerospace PhD student in Boulder, Colorado.'
+  [params.socialIcons]
+    website = 'https://ajlabarca.com'
+    youtube = 'https://www.youtube.com/@ajlabarca1584'
 
 [outputs]
-  home = ["HTML", "RSS"]
-  page = ["HTML"]
-  section = ["HTML"]
+  home = ['HTML', 'RSS']
+  page = ['HTML']
+  section = ['HTML']
 
 [imaging]
-  quality = 75
-  resampleFilter = "CatmullRom"
+  resampleFilter = 'CatmullRom'
+  [imaging.jpeg]
+    quality = 75
+  [imaging.webp]
+    quality = 75
 
 [module]
   [[module.imports]]
-    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
+    path = 'github.com/nicokaiser/hugo-theme-gallery/v4'
 
-[menu]
-  [[menu.main]]
-    name = "About"
-    url  = "/about/"
+[menus]
+  [[menus.main]]
+    name = 'Photos'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Music'
+    pageRef = '/music'
+    weight = 20
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
     weight = 30
-  [[menu.main]]
-    name = "Work →"
-    url  = "https://ajlabarca.com"
+  [[menus.main]]
+    name = 'Research & CV ↗'
+    url = 'https://ajlabarca.com'
     weight = 40
