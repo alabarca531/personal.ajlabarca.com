@@ -1,6 +1,7 @@
 ---
 title: "Music"
 layout: music
+eyebrow: "Cellist · Pianist · Instrument hoarder"
 description: "Recordings and accolades from my years as a musician."
 ---
 

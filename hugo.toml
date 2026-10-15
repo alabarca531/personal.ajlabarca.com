@@ -7,7 +7,7 @@ enableRobotsTXT = true
 timeout = '120s'
 
 [params]
-  defaultTheme = 'dark'
+  eyebrow = 'Photos & Music'
   description = 'Photography and music by AJ La Barca, an aerospace PhD student in Boulder, Colorado.'
   [params.socialIcons]
     website = 'https://ajlabarca.com'

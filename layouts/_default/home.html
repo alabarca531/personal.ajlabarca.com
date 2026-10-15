@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ partial "title.html" . }}
+  <nav class="quick-links" aria-label="Sections">
+    <a class="pill pill-accent" href="{{ "music/" | relURL }}">♪ Music &amp; accolades</a>
+    <a class="pill" href="{{ "about/" | relURL }}">About me</a>
+    <a class="pill" href="https://ajlabarca.com">Research ↗</a>
+  </nav>
+  {{ partial "featured.html" . }}
+  <section class="albums">
+    <h2 class="section-label">Albums</h2>
+    <div class="galleries">
+      {{ range where .Pages "Params.private" "ne" true }}{{ partial "album-card.html" . }}{{ end }}
+    </div>
+  </section>
+{{ end }}

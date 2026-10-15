@@ -1,0 +1,12 @@
+{{ if .Title }}
+  <hgroup class="page-intro">
+    <p class="eyebrow">
+      {{- if .IsHome }}{{ site.Params.eyebrow }}
+      {{- else if .Parent }}{{ with .Parent }}{{ if not .IsHome }}<a href="{{ .RelPermalink }}">{{ .Title }}</a> · {{ end }}{{ end }}
+        {{- $n := len (.Resources.ByType "image") }}{{ if gt $n 0 }}Album · {{ $n }} photo{{ if ne $n 1 }}s{{ end }}{{ else }}{{ .Params.eyebrow | default .Title }}{{ end }}
+      {{- end -}}
+    </p>
+    <h1>{{ if .IsHome }}{{ .Params.heading | default .Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+    {{ with .Params.Description }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
+  </hgroup>
+{{ end }}

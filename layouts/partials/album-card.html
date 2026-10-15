@@ -1,0 +1,18 @@
+{{ $gallery := partial "get-gallery.html" . }}
+{{ with $gallery }}
+  <a class="card album-card" href="{{ .page.RelPermalink }}">
+    <figure style="background-color: {{ .color }}">
+      <img class="lazyload" width="{{ .thumbnail.Width }}" height="{{ .thumbnail.Height }}" data-src="{{ .thumbnail.RelPermalink }}" alt="" />
+    </figure>
+    <div class="album-meta">
+      <h2>{{ .page.Title }}</h2>
+      <span class="count-pill">
+        {{- if gt .albumCount 0 -}}
+          {{ T "albumCount" (dict "count" (.albumCount | lang.FormatNumber 0) "photoCount" (.imageCount | lang.FormatNumber 0 | lang.Translate "photoCount")) }}
+        {{- else -}}
+          {{ T "photoCount" (.imageCount | lang.FormatNumber 0) }}
+        {{- end -}}
+      </span>
+    </div>
+  </a>
+{{ end }}

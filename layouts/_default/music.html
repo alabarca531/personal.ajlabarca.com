@@ -1,21 +1,33 @@
 {{ define "main" }}
   {{ $m := hugo.Data.music }}
-  {{ partial "title.html" . }}
-  {{ partial "photo.html" (dict "name" "cello-solo" "alt" "AJ La Barca performing as cello soloist with orchestra" "class" "photo-hero" "sizes" "(max-width: 1200px) 100vw, 1200px") }}
-  <section class="prose music-intro">
-    {{ .Content }}
-    {{ with $m.instruments }}
-      <ul class="instruments">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  <section class="music-hero{{ if not (resources.GetMatch "images/cello-solo.*") }} no-photo{{ end }}">
+    {{ with resources.GetMatch "images/cello-solo.*" }}
+    {{ $s := .Fill "640x800 Center webp" }}{{ $l := .Fill "960x1200 Center webp" }}
+    <figure class="music-photo">
+      <img src="{{ $s.RelPermalink }}" srcset="{{ $s.RelPermalink }} 640w, {{ $l.RelPermalink }} 960w" sizes="(max-width: 768px) 100vw, 26rem" width="640" height="800" alt="AJ La Barca performing as cello soloist with orchestra" fetchpriority="high">
+      <figcaption>Soloist with orchestra</figcaption>
+    </figure>
     {{ end }}
-    {{ with $m.channel }}
-      <p><a class="yt-channel" href="{{ . }}" target="_blank" rel="noopener">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd"/></svg>
-        Watch more on YouTube</a></p>
-    {{ end }}
+    <div class="music-text">
+      <p class="eyebrow">{{ .Params.eyebrow | default "Music" }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="prose">{{ .Content }}</div>
+      {{ with $m.instruments }}
+        <ul class="instruments">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+      {{ end }}
+      {{ with $m.channel }}
+        <a class="yt-channel" href="{{ . }}" target="_blank" rel="noopener">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd"/></svg>
+          My YouTube channel</a>
+      {{ end }}
+    </div>
   </section>
 
   {{ with $m.videos }}
   <section class="videos">
+    <h2 class="section-label">Recordings</h2>
+    <div class="video-grid">
     {{ range . }}
     <figure class="video">
       <button class="yt-lite" type="button" data-id="{{ .id }}" aria-label="Play: {{ .title }}"
@@ -29,6 +41,7 @@
       </figcaption>
     </figure>
     {{ end }}
+    </div>
   </section>
   <script>
     document.querySelectorAll(".yt-lite").forEach((b) => b.addEventListener("click", () => {
@@ -43,8 +56,8 @@
   {{ end }}
 
   {{ with $m.accolades }}
-  <section class="prose accolades">
-    <h2>Accolades</h2>
+  <section class="panel accolades">
+    <h2 class="section-label">Accolades</h2>
     {{ partial "photo.html" (dict "name" "music-headshot" "alt" "AJ La Barca with cello" "class" "photo-side" "sizes" "(max-width: 768px) 100vw, 20rem") }}
     {{ $groups := slice }}
     {{ range . }}{{ $groups = $groups | append (.group | default "") }}{{ end }}
